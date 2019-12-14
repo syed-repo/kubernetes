@@ -1,0 +1,4 @@
+#Download base image ubuntu 16.04
+FROM ubuntu:18.04
+
+CMD tail -f /dev/null
