@@ -2,6 +2,7 @@
 Kubernetes
 
 flask-app : Sample application in flask framework
+
 flask     : Helm chart for deplying the Sample flask application
 
 metrics server
