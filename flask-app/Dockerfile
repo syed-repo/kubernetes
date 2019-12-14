@@ -9,7 +9,7 @@ RUN apt -y install python3-pip
 RUN pip3 install flask
 
 RUN mkdir -p /appl/flask
-COPY main.py  /opt/flask
+COPY main.py  /appl/flask
 
 #execute the flask application on boot
 ENTRYPOINT ["python3.6","/appl/flask/main.py"]
