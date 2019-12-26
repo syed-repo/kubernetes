@@ -8,3 +8,7 @@ flask     : Helm chart for deplying the Sample flask application
 metrics server
 
 https://stackoverflow.com/questions/54106725/docker-kubernetes-mac-autoscaler-unable-to-find-metrics 
+
+Consume REST API
+
+https://spring.io/guides/gs/consuming-rest/
