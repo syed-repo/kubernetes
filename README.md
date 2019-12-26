@@ -13,4 +13,6 @@ Consume REST API
 
 https://spring.io/guides/gs/consuming-rest/
 
+https://stackoverflow.com/questions/12916169/how-to-consume-rest-in-java
+
 metrics server - https://stackoverflow.com/questions/54106725/docker-kubernetes-mac-autoscaler-unable-to-find-metrics 
