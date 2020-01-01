@@ -20,3 +20,7 @@ metrics server - https://stackoverflow.com/questions/54106725/docker-kubernetes-
 https://docs.python.org/2/library/profile.html
 
 python3 -m cProfile -s cumtime -o profile.dat  profileMain.py
+
+AUTO SCALING - https://docs.bitnami.com/kubernetes/how-to/configure-autoscaling-custom-metrics/
+
+

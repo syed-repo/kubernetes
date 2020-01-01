@@ -4,3 +4,7 @@ Forwarding from [::1]:5000 -> 5000
 Handling connection for 5000
 
 kubectl delete -n kube-system deployments.apps metrics-server
+
+kubectl edit deployment/helloworld-deployment
+
+kubectl create -f helloworld-deployment.yaml && watch -n1 kubectl get pods
