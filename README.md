@@ -7,6 +7,8 @@ flask     : Helm chart for deploying the Sample flask application
 
 cprofile  : Profile a python application
 
+custom-metrics : Kubernetes Autoscaling Pods-- HPA
+
 Kubernetes Monitoring - https://www.replex.io/blog/kubernetes-in-production-the-ultimate-guide-to-monitoring-resource-metrics
 
 metrics server - https://stackoverflow.com/questions/54106725/docker-kubernetes-mac-autoscaler-unable-to-find-metrics 
@@ -23,3 +25,6 @@ python3 -m cProfile -s cumtime -o profile.dat  profileMain.py
 
 AUTO SCALING - https://docs.bitnami.com/kubernetes/how-to/configure-autoscaling-custom-metrics/
 
+https://stefanprodan.com/2018/kubernetes-horizontal-pod-autoscaler-prometheus-metrics/
+
+GO Installation - https://www.linode.com/docs/development/go/install-go-on-ubuntu/
