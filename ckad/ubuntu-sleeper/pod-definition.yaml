@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+  containers:
+    - name: ubuntu-sleeper
+      image: ssalahud/ubuntu-sleeper:latest
+      #command: ["sleep"]
+      #args: ["50"]
+      ports:
+        - containerPort: 8080
+      env:
+        - name: APP_COLOR
+          value: pink

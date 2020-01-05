@@ -1,0 +1,91 @@
+docker run --name ubuntu-sleeper ubuntu-sleeper
+docker run --name ubuntu-sleeper ubuntu-sleeper 10
+
+Docker CMD can be specified in two formats, CMD command param1 or in the JSON format as CMD["command", "param1]
+
+docker run --name ubuntu-sleeper sleep 10 => Running the docker container by overwriting the CMD command
+
+change the CMD sleep 5 => ENTRYPOINT ["sleep"]
+docker run ubuntu-sleeper 10 => value 10 will get appended to sleep... CMD replaces the entire command
+
+ENTRYPOINT ["sleep"]
+CMD ["5"]
+when the parameter value is not given then the default value of 5 will be taken up, for this to work, both the ENTRYPOINT and CMD has to be given in the json format.
+
+docker run --name ubuntu-sleeper --entry-point sleep2.0 ubuntu-sleeper 10 => to overrite the sleep command with sleep2.0
+
+docker build -t ubuntu-sleeper .
+
+apiVersion: v1
+kind: pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+  containers:
+    - name: ubuntu-sleeper
+      image: ubuntu-sleeper
+      command: ["sleep"] => ENTRYPOINT
+      args: ["10"]   => Default CMD command of the docker
+--------------------------------------------------------------------------------------------
+ubuntu@ip-172-31-4-214:~/kubernetes/ckad$ cat pod-definition.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+  containers:
+    - name: ubuntu-sleeper
+      image: ssalahud/ubuntu-sleeper:latest
+      command: ["sleep"]
+      args: ["50"]
+ubuntu@ip-172-31-4-214:~/kubernetes/ckad$
+--------------------------------------------------------------------------------------------
+kubectl create -f pod-definition.yaml
+
+kubectl delete pod webapp
+
+kubectl get pod webapp -o yaml > my-new-pod.yaml
+
+kubectl edit deployment my-deployment => With Deployments you can easily edit any field/property of the POD template. Since the pod template is a child of the deployment specification,  with every change the deployment will automatically delete and create a new pod with the new changes. So if you are asked to edit a property of a POD part of a deployment you may do that simply by running the command
+
+
+Environment Variables
+=====================
+
+docker run -e APP_COLOR=pink simple-webapp-color
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+  containers:
+    - name: ubuntu-sleeper
+      image: ssalahud/ubuntu-sleeper:latest
+      command: ["sleep"]
+      args: ["50"]
+      ports:
+        - containerPort: 8080
+      env:
+        - name: APP_COLOR
+          value: pink
+========================================
+
+Apart from specifying the values directly, it can be done using a configmap or a secret.
+
+env:
+  - name: APP_COLOR
+    valueFrom:
+      configMapKeyRef:
+
+env:
+  - name: APP_COLOR
+    valueFrom:
+      secretKeyRef:
+
+========================================
+
+
+
+
