@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: ssalahud/redis-client
+  tag: "1.0"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
