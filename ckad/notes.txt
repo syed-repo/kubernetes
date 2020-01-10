@@ -86,6 +86,212 @@ env:
 
 ========================================
 
+POD Status
+Pending -> ContainerCreating -> Running
+
+POD Conditions
+PodScheduled
+Initialized
+ContainersReady
+Ready
+
+Kubectl describe pod <pod_name>  
+Look for the Conditions section
+
+Readiness Probes
+- HTTP Test / api/ready
+- TCP Test
+- Exec Command (Custom Script)
+
+Liveness Probes
+----------------------------------------------------------------------------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-webapp
+  lables:
+    name: simple-webapp
+    app : App1
+    function: front-end
+  annotations:
+    buildversion: 1.34
+spec:
+  containers:
+  - name: simple-webapp
+    image: simple-webapp
+    ports:
+      - containerPort: 8080
+    redinessProbe:
+      httpGet:
+        path: /api/ready
+        port: 8080
+
+      initialDelaySeconds: 10 (Additional Delay)
+	
+      periodSeconds: 5 (How often to probe)
+
+      failureThreshold: 8 (By default, the probe will stop after 3 failed attempts)
+
+      tcpSocket:
+        port: 3306
+
+      exec:
+        command:
+          - cat
+          - /app/is_ready
+
+    livenessProbe:
+      httpGet:
+        path: /api/healthy
+        port: 8080
+----------------------------------------------------------------------------
+Logging
+
+kubectl logs -f event-simulator-pod <container_name> (if there are multiple containers)
+----------------------------------------------------------------------------
+Monitor
+No inbuilt solutions
+Metrics Server - Only this is required for CKAD
+Prometheus
+Elastic Stack
+DATADOG
+dynatrace
+----------------------------------------------------------------------------
+Metric Server
+- In memory monitoring solution
+- Cannot view historical data
+- Kubelet (cAdvisor is responsible for sharing the metrics to metrics server)
+
+git clone https://github.com/kubernetes-sigs/metrics-server
+kubectl create -f deploy/1.8+/
+
+kubectl top node
+kubectl top pod
+----------------------------------------------------------------------------
+Labels and Selectors
+
+Lables are included in the pod definition , metadata section, any number of lables can be specified
+
+kubectl get pods --selector app=App1
+
+ReplicaSet
+----------
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: App1
+  template:
+    metadata:
+      labels:
+        app: App1
+        function: Frond-end
+
+----------------------------------------------------------------------------
+
+Rollout
+kubectl rollout status deployment/myapp-deployment
+
+kubectl rollout history deployment/myapp-deployment
+
+kubectl apply -f deployment-definition.yaml (Image name is changed and apply command is executed)
+(or)
+kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
+
+Kubectl get replicasets (after the upgrade, it will have 2 replicasets)
+
+
+----------------------------------------------------------------------------
+Roolback
+
+kubectl rollout undo deployment/myapp-deployment
+
+----------------------------------------------------------------------------
+
+Kubectl run
+kubectl run nginx --image-nginx (it creates a deployment as well)
+
+----------------------------------------------------------------------------
+
+docker run ubuntu expr 3 + 2
+
+apiVersion: v1
+kind: Pod
+metatdata:
+  name: math-pod
+spec:
+  containers:
+  - name
+    image: ubuntu
+    command: ['expr', '3', '+', '2']
+
+  restartPolicy: Always (reset to Never or OnFailure)
+----------------------------------------------------------------------------
+
+Job Definition
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: math-add-job
+spec:
+
+  completions: 3
+  parallelism: 3
+  template:
+    spec:
+      containers:
+      - name
+        image: ubuntu
+        command: ['expr', '3', '+', '2']
+
+      restartPolicy: Never'
+
+kubectl create -f job-definition.yaml
+----------------------------------------------------------------------------
+kubectl get jobs
+
+kubectl delete job math-add-job
+----------------------------------------------------------------------------
+Cron Job
+
+apiVersion: batch/v1beta1
+kind: CrobJob
+metadata:
+  name: reporting-cron-job
+spec:
+  schedule: "*/1 * * * *" (crontab like syntax)
+  jobTemplate:
+    spec:
+      completions: 3
+      parallelism: 3
+      template:
+        spec:
+          containers:
+          - name
+            image: ubuntu
+            command: ['expr', '3', '+', '2']
+
+          restartPolicy: Never'
+
+kubectl get cronjob
+----------------------------------------------------------------------------
+Multiple kind of Multi Container
+- Ambassador
+- Adapter
+- Sidecar - deploying logging agent
+
+Multi-Container pods have the same lifecycle
+They share the same Network and Storage (Can be connect with other as localhost)
+----------------------------------------------------------------------------
+
+
+
+
+
+             
+
+
 
 
 
