@@ -1,3 +1,7 @@
+git config --global user.email "you@example.com"
+
+git config --global user.name "Your Name"
+
 # kubernetes
 Kubernetes
 
@@ -29,4 +33,18 @@ https://stefanprodan.com/2018/kubernetes-horizontal-pod-autoscaler-prometheus-me
 
 GO Installation - https://www.linode.com/docs/development/go/install-go-on-ubuntu/
 
+HELM Charts: https://github.com/helm/charts
+
 https://github.com/helm/charts
+
+https://github.com/bitnami/bitnami-docker-redis/issues/106
+
+Jedis
+
+https://www.baeldung.com/jedis-java-redis-client-library
+
+https://www.tutorialspoint.com/redis/redis_java.htm
+
+Maven
+
+http://tutorials.jenkov.com/maven/maven-tutorial.html#installing-maven
