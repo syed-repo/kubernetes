@@ -14,6 +14,9 @@ public class HelloSpringApp {
 		// call methods on bean
 		System.out.println(theCoach.getDailyWorkout());
 		
+		// method call using constructor dependency injection
+		System.out.println(theCoach.getDailyFortune());
+		
 		// close the context
 		context.close();
 	}

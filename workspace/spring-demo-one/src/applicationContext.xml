@@ -16,7 +16,15 @@
     	<property name="printedLoggerLevel" value="FINE"/>
     </bean>
     
-    	<bean id="myCoach" 
-		class="com.study.springdemo.BaseballCoach">
+    <!--  define the dependency -->
+    <bean id="myFortuneService" 
+		class="com.study.springdemo.HappyFortuneService">
+	</bean>
+    
+    <bean id="myCoach" 
+		class="com.study.springdemo.TrackCoach">
+		
+		<!--  setup constructor injection -->
+		<constructor-arg ref="myFortuneService"></constructor-arg>
 	</bean>
 </beans>
