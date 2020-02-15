@@ -1,4 +1,4 @@
-package com.study.sprintdemo;
+package com.study.springdemo;
 
 public class BaseballCoach implements Coach {
 	public String getDailyWorkout() {

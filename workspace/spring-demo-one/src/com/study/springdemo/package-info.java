@@ -5,4 +5,4 @@
  * @author Syed
  *
  */
-package com.study.sprintdemo;
+package com.study.springdemo;

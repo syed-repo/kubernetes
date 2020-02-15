@@ -1,6 +1,6 @@
-package com.study.sprintdemo;
+package com.study.springdemo;
 
-public class TrachCoach implements Coach {
+public class TrackCoach implements Coach {
 
 	@Override
 	public String getDailyWorkout() {		
