@@ -9,9 +9,6 @@
 
 	<!-- add entry to enable component scanning -->
 	<context:component-scan base-package="com.study.springdemo" />
-	
-	<!--  Load the properties file -->
-	<context:property-placeholder location="classpath:sport.properties"/>
 
 	<bean id="myLoggerConfig" class="com.study.springdemo.MyLoggerConfig" init-method="initLogger">
     	<property name="rootLoggerLevel" value="FINE" />
@@ -24,21 +21,11 @@
 	</bean>
     
     <bean id="myCoach" 
-		class="com.study.springdemo.TrackCoach">
+		class="com.study.springdemo.TrackCoach" scope="singleton"
+		init-method="doMyInit" destroy-method="doMyCleanup">
 		
 		<!--  setup constructor injection -->
 		<constructor-arg ref="myFortuneService"></constructor-arg>
-	</bean>
-	
-	<bean id="myCricketCoach" 
-		class="com.study.springdemo.CircketCoach" scope="singleton">
-		
-		<!--  setup setter injection -->
-		<property name="fortuneService" ref="myFortuneService" />
-		
-		<!--  setup setter injection for literal values -->
-		<property name="emailAddress" value="${foo.email}" />
-		<property name="team" value="${foo.team}" />
 		
 	</bean>
 </beans>

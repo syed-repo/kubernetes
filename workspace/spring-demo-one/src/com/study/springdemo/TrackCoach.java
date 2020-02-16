@@ -4,6 +4,16 @@ public class TrackCoach implements Coach {
 	// define the private field for dependency injection
 	FortuneService fortuneService;
 	
+	// add a initialization method
+	void doMyInit() {
+		System.out.println("Init: Do my startup stuff");
+	}
+	
+	// add a destroy method
+	void doMyCleanup() {
+		System.out.println("Destory: do the clean up stuff");
+	}
+	
 	public TrackCoach(FortuneService fortuneService) {
 		super();
 		this.fortuneService = fortuneService;
