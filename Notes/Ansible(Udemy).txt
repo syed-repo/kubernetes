@@ -1,0 +1,30 @@
+Yaml - Yet Another Markup Language or YAML Ain’t markup language
+Used as an Configuration file
+
+YAML is case sensitive
+The files should have .yaml as the extension
+YAML does not allow the use of tabs while creating YAML files; spaces are allowed instead
+
+Synopsis of YAML Basic Elements
+-------------------------------
+The synopsis of YAML basic elements is given here: Comments in YAML begins with the (#) character. Comments must be separated from other tokens by whitespaces.
+YAML does not support multi line comments.
+
+List members are denoted by a leading hyphen (-).
+
+List members are enclosed in square brackets and separated by commas.
+
+Associative arrays are represented using colon ( : ) in the format of key value pair. They are enclosed in curly braces {}.
+
+Multiple documents with single streams are separated with 3 hyphens (---).
+
+Repeated nodes in each file are initially denoted by an ampersand (&) and by an asterisk (*) mark later.
+
+YAML always requires colons and commas used as list separators followed by space with scalar values.
+
+Nodes should be labelled with an exclamation mark (!) or double exclamation mark (!!), followed by string which can be expanded into an URI or URL.
+
+
+Inventory List file
+Playbook has Role (Task) wihch requires Activities which are placed in the Modules
+Uses SSH connction to the Nodes, its Agentless
