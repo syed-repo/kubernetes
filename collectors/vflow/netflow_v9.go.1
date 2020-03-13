@@ -230,11 +230,11 @@ LOOP:
 		if opts.Verbose {
                         norecords++
 			logger.Printf("Record Count: %d", norecords)
-                        if norecords > 100000 {
+                        if norecords > 10000 {
                                now := time.Now()
                                edsecs := now.Unix()
                                tsecs = edsecs - stsecs
-			       logger.Printf("Time taken for 100K Records: %d", tsecs)
+			       logger.Printf("Time taken for 10K Records: %d", tsecs)
 			       break
 			}
 			logger.Println(string(b))
