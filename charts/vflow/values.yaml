@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ssalahud/pycoll-app
+  repository: ssalahud/vflow-app
   tag: "latest"
   pullPolicy: IfNotPresent
 
@@ -33,10 +33,10 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 9995
-  targetPort: 9995
+  port: 4729
+  targetPort: 4729
   protocol: UDP
-  name: netflow
+  name: vflow
 
 ingress:
   enabled: false
