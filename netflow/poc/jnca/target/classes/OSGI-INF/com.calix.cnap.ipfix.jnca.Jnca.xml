@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="com.calix.cnap.ipfix.jnca.Jnca" activate="activate" deactivate="deactivate">
-    <reference name="ipfixIEIdService" interface="com.calix.cnap.ipfix.api.IpfixIeIdService" cardinality="1..1" policy="static" bind="bindIpfixIEIdService" unbind="unbindIpfixIEIdService"/>
-    <implementation class="com.calix.cnap.ipfix.jnca.Jnca"/>
-</scr:component>
