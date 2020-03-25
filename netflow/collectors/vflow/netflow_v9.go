@@ -235,6 +235,7 @@ LOOP:
                                edsecs := now.Unix()
                                tsecs = edsecs - stsecs
 			       logger.Printf("Time taken for 100K Records: %d", tsecs)
+			       time.Sleep(2 * time.Second)
 			       break
 			}
 			logger.Println(string(b))

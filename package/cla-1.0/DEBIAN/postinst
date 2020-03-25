@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "postinst script executed"

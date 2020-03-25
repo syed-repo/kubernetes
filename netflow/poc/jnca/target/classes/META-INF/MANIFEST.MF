@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1582135330146
+Build-Jdk: 1.8.0_201
+Built-By: ssalahud
+Bundle-Description: CNAP IPFIX protocol - JNCA NetFlow library
+Bundle-ManifestVersion: 2
+Bundle-Name: cnap-protocols-ipfix-jnca
+Bundle-SymbolicName: com.calix.cnap-protocols-ipfix-jnca
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: 
+ com.calix.cnap.ipfix.jnca;uses:="com.calix.cnap.ipfix.api";version="0.0
+ .1",
+ com.calix.cnap.ipfix.jnca.cai.flow.collector;uses:="com.calix.cnap.ipfi
+ x.jnca.cai.flow.packets,com.calix.cnap.ipfix.jnca.cai.flow.struct,com.c
+ alix.cnap.ipfix.jnca.cai.sql,com.calix.cnap.ipfix.jnca.cai.utils";versi
+ on="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.flow.collector.interpretator;uses:="com.c
+ alix.cnap.ipfix.jnca.cai.flow.packets";version="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.flow.packets;uses:="com.calix.cnap.ipfix.
+ jnca.cai.flow.packets.v9,com.calix.cnap.ipfix.jnca.cai.flow.struct,com.
+ calix.cnap.ipfix.jnca.cai.sql,com.calix.cnap.ipfix.jnca.cai.utils,com.c
+ alix.util.packet";version="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.flow.packets.v9;uses:="com.calix.cnap.ipf
+ ix.api,com.calix.cnap.ipfix.jnca.cai.utils";version="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.flow.struct;uses:="com.calix.cnap.ipfix.j
+ nca.cai.flow.packets";version="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.sql;uses:="com.calix.cnap.ipfix.jnca.cai.
+ utils";version="0.0.1",
+ com.calix.cnap.ipfix.jnca.cai.utils;version="0.0.1"
+Import-Package: 
+ com.calix.cnap.ipfix.api;version="[0.0,1)",
+ com.calix.cnap.ipfix.jnca,
+ com.calix.cnap.ipfix.jnca.cai.flow.collector,
+ com.calix.cnap.ipfix.jnca.cai.flow.collector.interpretator,
+ com.calix.cnap.ipfix.jnca.cai.flow.packets,
+ com.calix.cnap.ipfix.jnca.cai.flow.packets.v9,
+ com.calix.cnap.ipfix.jnca.cai.flow.struct,
+ com.calix.cnap.ipfix.jnca.cai.sql,
+ com.calix.cnap.ipfix.jnca.cai.utils,
+ com.calix.cnap.protocols.models;version="[0.0,1)",
+ com.calix.util.osgi;version="[0.0,1)",
+ com.calix.util.packet;version="[0.0,1)",
+ com.google.common.base;version="[22.0,23)",
+ org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/com.calix.cnap.ipfix.jnca.Jnca.xml
+Tool: Bnd-3.3.0.201609221906

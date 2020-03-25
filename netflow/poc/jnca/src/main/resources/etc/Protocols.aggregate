@@ -1,0 +1,71 @@
+#
+# Protocol aggregations (see Doc/expressions)
+#
+
+# Proto name    Expression
+# ----------   ----------------------
+
+# TCP
+
+Encrypt          = proto = 6 && port = 22
+Telnet       = proto = 6 && (port = 23 || port = 992)
+SMTP         = proto = 6 && (port = 25 || port = 465)
+FTP          = proto = 6 && (port = 20 || port = 21||port = 989 || port = 990)
+WWW          = proto = 6 && (port = 80 || port = 443 || port ~ 8000-8003)
+POP3         = proto = 6 && (port = 110 || port = 995)
+IMAP         = proto = 6 && (port = 143 || port = 993)
+bgp          = proto = 6 && port = 179
+ldap         = proto = 6 && (port = 389 || port = 636)
+RSTP         = proto = 6 && (port = 554 || port = 7070 ) 
+uucp         = proto = 6 && port = 540
+SOCKS        = proto = 6 && port = 1080
+kpop         = proto = 6 && port = 1109 
+Oracle       = proto = 6 && port = 1521
+ingreslock   = proto = 6 && port = 1524
+pptp         = proto = 6 && port = 1723
+Chat          = proto = 6 && (port = 194 || port = 994 || port ~ 6667-6669 || port = 1863) 
+HTTP-Proxy   = proto = 6 && port = 3128
+X11          = proto = 6 && (port ~ 6000-6003 || port ~ 7770-7775)
+dtspc        = proto = 6 && port = 6112
+fs           = proto = 6 && port = 7100
+knetd        = proto = 6 && port = 2053
+Media        = proto = 6 && (port = 7070 || port = 7071 || port = 554)
+
+# UDP
+
+ntp          = proto = 17 && port = 123
+SNMP         = proto = 17 && (port = 161 || port = 162)
+who          = proto = 17 && port = 513
+syslog       = proto = 17 && port = 514
+Chat          = proto = 17 && (port = 517 || port = 518 || port = 4000)
+Encrypt          = proto = 17 && port = 750 
+phone        = proto = 17 && port = 1167
+l2tp         = proto = 17 && port = 1701
+radius       = proto = 17 && port = 1812
+RTP          = proto = 17 && port ~ 6970-6999   
+
+
+# TCP/UDP
+
+echo         = port = 7
+domain       = port = 53
+Encrypt          = (port = 88 || port = 464 || port = 749)
+NetBIOS      = port ~ 137-139
+LDAP         = (port = 389 || port = 636)
+WWW          = port = 343
+microsoft-ds = port = 445
+NFS          = port = 2049
+ms-sql       = port ~ 1433-1434
+wins         = port = 1512
+lockd        = port = 4045
+
+# Other IP Protocols
+
+ICMP         = proto = 1
+IGMP         = proto = 2
+TCP          = proto = 6
+EGP          = proto = 8
+UDP          = proto = 17
+Encrypt          = proto = 47
+ESP          = proto = 50
+IP           = proto >= 0

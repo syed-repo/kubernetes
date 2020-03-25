@@ -1,0 +1,12 @@
+#
+# AS Matrix aggregations
+#
+
+# AS name    AS numbers
+# -------   ----------------------
+
+Local     = 0
+UpStream  = 100 101 110-160
+Client1   = 201
+Client2   = 202 203
+Client3   = 205-210 307

@@ -12,6 +12,9 @@ RUN apt -y install wget
 RUN apt -y install cmake
 RUN apt -y install default-jdk
 RUN apt -y install curl
+RUN apt -y install python3
+RUN apt -y install python3-pip
+RUN pip3 install psutil
 
 RUN mkdir -p /home/verizon
 WORKDIR /home/verizon
@@ -53,5 +56,6 @@ RUN cmake ./CMakeLists.txt
 RUN make
 
 WORKDIR /home/verizon
+COPY stats.py /home/verizon/stats.py
 
 CMD tail -f /dev/null
