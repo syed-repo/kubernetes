@@ -1,0 +1,5 @@
+Disabling  Hyper-V virtualization
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+also
+bcdedit /set hypervisorlaunchtype off
