@@ -48,3 +48,10 @@ https://www.tutorialspoint.com/redis/redis_java.htm
 Maven
 
 http://tutorials.jenkov.com/maven/maven-tutorial.html#installing-maven
+
+Disabling  Hyper-V virtualization
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+also
+bcdedit /set hypervisorlaunchtype off
+
