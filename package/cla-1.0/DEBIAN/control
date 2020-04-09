@@ -1,0 +1,8 @@
+Package: hello-world
+Version: 1.0.0-1
+Architecture: all
+Maintainer: Syed Salahuddin <syed.salahuddin@outlook.com>
+Depends: python
+Description: hello-world program to demostrate the use of debian packages 
+ .
+ This is install a python program.
